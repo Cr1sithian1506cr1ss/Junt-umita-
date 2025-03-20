@@ -1,0 +1,63 @@
+import React, { useState } from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { Sun, Moon, ShoppingCart, Calendar } from "lucide-react";
+import "./App.css";
+
+const data = [
+  { name: "Lunes", ventas: 50 },
+  { name: "Martes", ventas: 75 },
+  { name: "Miércoles", ventas: 60 },
+  { name: "Jueves", ventas: 90 },
+  { name: "Viernes", ventas: 120 }
+];
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
+  return (
+    <div className={darkMode ? "app dark" : "app"}>
+      <header className="header">
+        <h1>Junt’umita - Administración</h1>
+        <button onClick={toggleDarkMode} className="toggle-btn">
+          {darkMode ? <Sun /> : <Moon />}
+        </button>
+      </header>
+      <main className="main-content">
+        <section className="card">
+          <h2>Ventas Diarias</h2>
+          <ResponsiveContainer width="100%" height={200}>
+            <BarChart data={data}>
+              <XAxis dataKey="name" stroke={darkMode ? "#fff" : "#000"} />
+              <YAxis stroke={darkMode ? "#fff" : "#000"} />
+              <Tooltip />
+              <Bar dataKey="ventas" fill="#c47f36" />
+            </BarChart>
+          </ResponsiveContainer>
+        </section>
+        <section className="card">
+          <h2>
+            <ShoppingCart /> Pedidos en Curso
+          </h2>
+          <p>Aquí se mostrarán los pedidos activos en cada mesa.</p>
+        </section>
+        <section className="card">
+          <h2>
+            <Calendar /> Reservas
+          </h2>
+          <p>Lista de reservas confirmadas para el día.</p>
+        </section>
+        <section className="card">
+          <h2>Pagos Digitales</h2>
+          <p>Integración con métodos de pago digital para facilitar transacciones.</p>
+        </section>
+      </main>
+      <footer className="footer">
+        <p>&copy; 2025 Junt’umita. Todos los derechos reservados.</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;

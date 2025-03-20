@@ -1,0 +1,57 @@
+/* Estilos generales */
+.app {
+  min-height: 100vh;
+  background-color: #f5f0e6; /* beige */
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+
+.app.dark {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
+/* Header */
+.header {
+  background-color: #5d4037; /* café oscuro */
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+/* Contenido principal */
+.main-content {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app.dark .card {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #5d4037;
+  color: #fff;
+}
